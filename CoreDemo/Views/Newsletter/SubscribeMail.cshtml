@@ -1,0 +1,27 @@
+﻿
+<div class="tech-btm">
+
+    <p>Teknoloji, yazılım ve diğer bloglardan haber alın </p>
+    <form action="/Newsletter/SubscribeMail/" method="post">
+        <input type="email" placeholder="Email" required="" id="mail" name="Mail">
+        <input type="submit" id="submit-button" value="Abone ol">
+    </form>
+</div>
+
+<script type="text/javascript">
+    $('#submit-button').click(function () {
+        let values = {
+            Mail: $("#mail").val()
+        };
+        $.ajax({
+            type: "post",
+            url: "/Newsletter/SubscribeMail/",
+            data: values,
+            success: function (func) {
+                let result = jQuery.parseJSON(func);
+            }
+        });
+    });
+</script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
